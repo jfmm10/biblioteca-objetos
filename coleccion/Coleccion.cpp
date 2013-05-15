@@ -1,16 +1,14 @@
 #include "Coleccion.hh"
 
 Coleccion::Coleccion()
-{
-   
-}
+{}
 
 Coleccion::~Coleccion()
-{
-}
+{}
 
-Coleccion::void agregarLibro(Libro l)
+Coleccion::void agregarLibro(string nombre,int edicion,string autor,int id,string genero)
 {
+		Libro l(string nombre,int edicion,string autor,int id,string genero);
         string gen = l.getgenero ();
 		int i;
 		for (i=0;i<7;++i)
@@ -20,9 +18,11 @@ Coleccion::void agregarLibro(Libro l)
 		}
 		libr[i].append(l);
 }
-Coleccion:: void agregarrevista(Revista r)
+
+Coleccion:: void agregarrevista(string nombre,int Id,int edicion,string materia,string fecha)
 {
-	string ma = r.getMateria ();
+		Revista r (string nombre,int Id,int edicion,string materia,string fecha);
+		string ma = r.getMateria ();
 		int i;
 		for (i=0;i<7;++i)
 		{
@@ -32,40 +32,83 @@ Coleccion:: void agregarrevista(Revista r)
 		revist[i].append(r);
 
 }
-}	
 
-Coleccion:: bool  eliminarLibro(Libro l)
 
-{string gen= l.getgenero();
-	int h ;
-	for (h=0;h<7;++h)
+Coleccion:: void eliminarLibro(int id)
+
+{
+	int a = id%10000,
+		b,
+		c;
+	a = (a/1000)-1;
+	
+	for (b = 0; b<9; ++b)
 	{
-		if gen==generos[h]
-			break;
-			for (i=0;i<libr.size();++i)
+		c = (libr[a].at(b)).getId();
+		if ( c == id )
 		{
-			if (l == materias[i])
-				break;
+			libr[a].erase(libr[a].begin()+b);
+			break;
 		}
-
-
-		
-		revist[i].append(r);
+	}
 }
 
-Libro:: string getautor()
+Coleccion:: void eliminarRevista(int id)
+
 {
-        cout<<"El autor del libro es :"<<autor<<endl;
-        return autor;
+	int a = id%10000,
+		b,
+		c;
+	a = (a/1000)-1;
+	
+	for (b = 0; b<7; ++b)
+	{
+		c = (revist[a].at(b)).getId();
+		if ( c == id )
+		{
+			libr[a].erase(libr[a].begin()+b);
+			break;
+		}
+	}
 }
-Libro:: bool  getprestado()
+
+Coleccion:: Libro buscarLibro(int id)
 {
-        cout<<"¿Esta prestado?  r// :"<<prestado<<endl;
-        return prestado;
+	Libro l ();
+	int a = id%10000,
+		b,
+		c;
+	a = (a/1000)-1;
+	
+	for (b = 0; b<7; ++b)
+	{
+		c = (libr[a].at(b)).getId();
+		if ( c == id )
+		{
+			return libr[a].at(b);
+		}
+	}
+	cout<< "El libro no se encuentra en la coleccion"<<endl;
+	return l;
+
 }
-Libro:: bool  setprestado()
+Coleccion:: Revista buscarRevista(int id)
 {
-        cout<<"Acaba de prestar el libro."<<prestado<<endl;
-		this->prestado=true;
-        return prestado;
+	Revista r ();
+	int a = id%10000,
+		b,
+		c;
+	a = (a/1000)-1;
+	
+	for (b = 0; b<7; ++b)
+	{
+		c = (revist[a].at(b)).getId();
+		if ( c == id )
+		{
+			return revist[a].at(b);
+		}
+	}
+	cout<< "La revista no se encuentra en la coleccion"<<endl;
+	return r;
+
 }
