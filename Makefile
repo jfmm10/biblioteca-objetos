@@ -1,6 +1,6 @@
 CPP     = g++
 CXXFLAGS = -c -Wall
-FOLDERS= usuarios control
+FOLDERS= usuarios control coleccion
  
 
 all: modulos 
