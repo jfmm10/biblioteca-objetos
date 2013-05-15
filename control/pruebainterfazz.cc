@@ -68,6 +68,7 @@ int main (int argc, char* argv[])
 		/****igualmente en la interfaz grafica pondremos la opcion ir atras para volver al menu
 		*****/
 	}
+	
 	if (entrada == 2){
 		cout << "Bienvenido A Ver Usuarios" << endl;
 		cout << "por Favor Ingresa el Id Del Usuario" << endl;
@@ -85,6 +86,7 @@ int main (int argc, char* argv[])
 			cout << "0" << endl;
 			rol = 0;
 		}
+		cout << rol;
 		//ahora se llama el metodo cargadatosusuario, dandole como parametros 
 		//el rol y el id del estudiante este se encargar de mostrar lo que 
 		// que especifique el metodo de la clase Data_Base(Grupo Base de datos)
@@ -111,6 +113,7 @@ int main (int argc, char* argv[])
 	}
 		
 	}
+	
 	if (entrada == 5){
 		cout << "Cerrando... Jave-Biblioteca" << endl;
 		cout << "Abortando....." << endl;
