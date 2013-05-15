@@ -1,12 +1,12 @@
 CPP     = g++
 CXXFLAGS = -c -Wall
-FOLDERS= usuarios
+FOLDERS= usuarios control
+ 
+
+all: modulos 
 
 
-all: modUsuarios
-
-
-modUsuarios:
+modulos:
 	@for d in $(FOLDERS); do \
 	   (cd $$d; $(MAKE) ); 	\
 	done
