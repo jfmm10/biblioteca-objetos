@@ -16,7 +16,7 @@ void Monitor::Agregar_Usuario(string a, int b, bool c, int d){
 	}
 
 void Monitor::Eliminar_Usuario(string a, int b){
-	  for(int i = 0; i<usuarios.size(); i++){
+	  for(unsigned int i = 0; i<usuarios.size(); i++){
 		  if ((usuarios[i].Obtener_Nombre()== a) && (usuarios[i].Obtener_Cuenta())==b)
 			usuarios.erase (usuarios.begin()+i);
 		  }
@@ -26,7 +26,7 @@ Usuario* Monitor::Get_Usuario(string a, int b){
 
     Usuario *temp;
     
-	  for(int i = 0; i<usuarios.size(); i++)
+	  for(unsigned int i = 0; i<usuarios.size(); i++)
       {
 		  if ((usuarios[i].Obtener_Nombre() == a) && (usuarios[i].Obtener_Cuenta() == b))
           {
